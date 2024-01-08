@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Color Effect</title>
+    <style>
+      #box {
+        width: 850px;
+        height: 600px;
+        border: 5px solid blue;
+        margin: 20px auto;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #pic {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 10px;
+      }
+      #tool {
+        width: 200px;
+        height: 90px;
+        border: 3px solid blue;
+        border-radius: 10px;
+        float: left;
+        margin: 5px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: bisque;
+      }
+      #btns {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+      }
+      #tool p {
+        margin: 0;
+        margin-bottom: 2px;
+        font-family: cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <img src="a.jpg" id="pic" />
+      <div id="btns">
+        <div id="tool">
+          <p>Brightness</p>
+          <p id="brightRatio"></p>
+          <input
+            id="bright"
+            type="range"
+            min="0"
+            max="500"
+            oninput="bright()"
+          />
+        </div>
+
+        <div id="tool">
+          <p>Contrast</p>
+          <p id="contrastRatio"></p>
+          <input
+            id="contrast"
+            type="range"
+            min="0"
+            max="500"
+            oninput="contrast()"
+          />
+        </div>
+
+        <div id="tool">
+          <p>Saturatation</p>
+          <p id="saturateRatio"></p>
+          <input
+            id="saturate"
+            type="range"
+            min="0"
+            max="500"
+            oninput="saturate()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function bright() {
+        var x = document.getElementById("bright").value;
+        document.getElementById("brightRatio").innerHTML = x;
+        var pic = document.getElementById("pic");
+        pic.style.filter = "brightness(" + x + "%)";
+      }
+      function contrast() {
+        var x = document.getElementById("contrast").value;
+        document.getElementById("contrastRatio").innerHTML = x;
+        var pic = document.getElementById("pic");
+        pic.style.filter = "contrast(" + x + "%)";
+      }
+      function saturate() {
+        var x = document.getElementById("saturate").value;
+        document.getElementById("saturateRatio").innerHTML = x;
+        var pic = document.getElementById("pic");
+        pic.style.filter = "saturate(" + x + "%)";
+      }
+    </script>
+  </body>
+</html>
